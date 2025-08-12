@@ -1,6 +1,7 @@
 "use client";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function DashboardPage() {
   return (
@@ -15,7 +16,7 @@ export default function DashboardPage() {
 
         <nav className="flex-1 p-4 space-y-2">
           <a
-            href="#"
+            href="/dashboard"
             className="block px-4 py-2 rounded hover:bg-blue-100 flex items-center space-x-2"
           >
             <span>         
@@ -25,7 +26,7 @@ export default function DashboardPage() {
           </a>
 
           <a
-            href="#"
+            href="/profile"
             className="block px-4 py-2 rounded hover:bg-blue-100 flex items-center space-x-2"
           >
             <span>         
@@ -35,7 +36,7 @@ export default function DashboardPage() {
           </a>
 
           <a
-            href="#"
+            href="/settings"
             className="block px-4 py-2 rounded hover:bg-blue-100 flex items-center space-x-2"
           >
             <span>         
@@ -60,7 +61,12 @@ export default function DashboardPage() {
       </div>
 
       <div className="flex-1 p-6">
-        <h1 className="text-3xl font-bold">WELCOME!</h1>
+        <div className="flex flex-row justify-between">
+          <h1 className="text-3xl font-bold">WELCOME!</h1>
+          <Link href="/new-task" className="px-4 py-2 bg-white rounded border-2 border-gray-300 hover:border-2 hover:border-gray-500 transition">
+                  New Task
+          </Link>
+        </div>
       </div>
     </div>
   );
