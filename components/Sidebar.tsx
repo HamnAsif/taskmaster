@@ -2,8 +2,17 @@
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
+  const pathname = usePathname(); // Get current path
+
+  const menuItems = [
+    { href: "/dashboard", label: "Dashboard", icon: "/dashboard.png" },
+    { href: "/profile", label: "Profile", icon: "/profile.png" },
+    { href: "/settings", label: "Settings", icon: "/setting.png" },
+  ];
+
   return (
     <div className="w-64 h-screen bg-white flex flex-col border-r border-gray-200 fixed top-0 left-0">
       <div className="flex flex-row space-x-2 border-b border-gray-200 pl-6 pt-2">
@@ -12,18 +21,21 @@ export default function Sidebar() {
       </div>
 
       <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
-        <Link href="/dashboard" className="block px-4 py-2 rounded hover:bg-blue-100 flex items-center space-x-2">
-          <Image src="/dashboard.png" alt="Dashboard Icon" width={20} height={20} />
-          <span>Dashboard</span>
-        </Link>
-        <Link href="/profile" className="block px-4 py-2 rounded hover:bg-blue-100 flex items-center space-x-2">
-          <Image src="/profile.png" alt="Profile Icon" width={20} height={20} />
-          <span>Profile</span>
-        </Link>
-        <Link href="/settings" className="block px-4 py-2 rounded hover:bg-blue-100 flex items-center space-x-2">
-          <Image src="/setting.png" alt="Settings Icon" width={20} height={20} />
-          <span>Settings</span>
-        </Link>
+        {menuItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={`block px-4 py-2 rounded flex items-center space-x-2 transition 
+              ${
+                pathname === item.href
+                  ? "bg-blue-100 font-semibold"
+                  : "hover:bg-blue-100"
+              }`}
+          >
+            <Image src={item.icon} alt={`${item.label} Icon`} width={20} height={20} />
+            <span>{item.label}</span>
+          </Link>
+        ))}
       </nav>
 
       <div className="flex items-center justify-center p-4">
