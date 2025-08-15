@@ -11,10 +11,10 @@ export default function LandingPage() {
             <h1 className="font-bold text-3xl">Organize Smarter, Acheive Faster</h1>
             <p className="text-gray-700">A powerful tool for managing tasks, tracking progress, and staying focused.</p>
             <div className= "flex flex-row space-x-6">
-              <Link href="#" className="px-4 py-2 bg-white rounded border-2 border-gray-300 hover:border-2 hover:border-gray-500 transition">
+              <Link href="/register" className="px-4 py-2 bg-white rounded border-2 border-gray-300 hover:border-2 hover:border-gray-500 transition">
                 Get Started
               </Link>
-              <Link href="#" className="px-4 py-2 bg-white rounded border-2 border-gray-300 hover:border-2 hover:border-gray-500 transition">
+              <Link href="/login" className="px-4 py-2 bg-white rounded border-2 border-gray-300 hover:border-2 hover:border-gray-500 transition">
                 Login
               </Link>
             </div> 
