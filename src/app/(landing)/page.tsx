@@ -1,5 +1,6 @@
+"use client"
 import Link from "next/link";
-import Image from 'next/image';
+import { motion } from "framer-motion"
 
 
 export default function LandingPage() {
@@ -11,12 +12,23 @@ export default function LandingPage() {
             <h1 className="font-bold text-3xl">Organize Smarter, Acheive Faster</h1>
             <p className="text-gray-700">A powerful tool for managing tasks, tracking progress, and staying focused.</p>
             <div className= "flex flex-row space-x-6">
-              <Link href="/register" className="px-4 py-2 bg-white rounded border-2 border-gray-300 hover:border-2 hover:border-gray-500 transition">
-                Get Started
+              <Link href="/register">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  className="px-4 py-2 bg-white rounded border-2 border-gray-300 hover:border-gray-500 transition text-center"
+                >
+                  Get Started
+                </motion.div>
               </Link>
-              <Link href="/login" className="px-4 py-2 bg-white rounded border-2 border-gray-300 hover:border-2 hover:border-gray-500 transition">
-                Login
+              <Link href="/login">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  className="px-4 py-2 bg-white rounded border-2 border-gray-300 hover:border-gray-500 transition text-center"
+                >
+                  Login
+                </motion.div>
               </Link>
+
             </div> 
         </div>
       </div>
