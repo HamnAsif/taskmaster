@@ -1,10 +1,12 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import Footer from "../../../components/Footer";
+
 export default function LandingLayout({children}: {children:React.ReactNode})
 {
     return(
-        <div>
+        <div className="min-h-screen flex flex-col">
         <nav id ="home" className="flex flex-row justify-between items-center p-3 shadow">
                 <div className="flex flex-row justify-start items-center space-x-4">
                     <div>         
@@ -21,9 +23,10 @@ export default function LandingLayout({children}: {children:React.ReactNode})
                     </Link>
                 </div>
         </nav>
-        <main>
+        <main className="flex-1">
             {children}
         </main>
+        <Footer />
     </div>
     );
 }
